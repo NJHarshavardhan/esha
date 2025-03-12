@@ -310,6 +310,67 @@ function App() {
           className="max-w-6xl mx-auto"
         >
           <h2 className="text-3xl font-bold text-center mb-12 text-pink-800 dark:text-pink-200">Customer Reviews</h2>
+                  {/* Review Form */}
+                  <motion.form 
+            onSubmit={handleSubmitReview}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-lg mx-auto mb-16 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg theme-transition border-2 border-pink-100 dark:border-pink-900"
+          >
+            <h3 className="text-xl font-semibold mb-4 text-pink-700 dark:text-pink-300">Share Your Experience</h3>
+            {error && (
+              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                {error}
+              </div>
+            )}
+            <div className="mb-4">
+              <label className="block text-pink-700 dark:text-pink-300 text-sm font-bold mb-2">
+                Your Name
+              </label>
+              <input
+                type="text"
+                value={newReview.name}
+                onChange={(e) => setNewReview({...newReview, name: e.target.value})}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 dark:text-pink-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-500"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-pink-700 dark:text-pink-300 text-sm font-bold mb-2">
+                Your Review
+              </label>
+              <textarea
+                value={newReview.review}
+                onChange={(e) => setNewReview({...newReview, review: e.target.value})}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 dark:text-pink-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-500 h-24"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-pink-700 dark:text-pink-300 text-sm font-bold mb-2">
+                Rating
+              </label>
+              <select
+                value={newReview.rating}
+                onChange={(e) => setNewReview({...newReview, rating: Number(e.target.value)})}
+                className="shadow border rounded w-full py-2 px-3 text-pink-700 dark:text-pink-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-500"
+              >
+                {[5, 4, 3, 2, 1].map((num) => (
+                  <option key={num} value={num}>{num} Stars</option>
+                ))}
+              </select>
+            </div>
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-pink-600 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <Send className="w-4 h-4" />
+              Submit Review
+            </motion.button>
+          </motion.form>
           
           {/* Review Slider */}
           <div className="flex overflow-x-auto space-x-4">
