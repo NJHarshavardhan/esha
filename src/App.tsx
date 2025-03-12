@@ -415,6 +415,7 @@ function App() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             {[
               { icon: Phone, text: "Phone", href: "tel:+91 63740 44646" },
+              { icon: Instagram,text:"Instagram", href: "https://www.instagram.com/esha_henna_hub/?hl=en" },
              // { icon: Mail, text: "book@mehndidesign.com", href: "mailto:book@mehndidesign.com" },
               { icon: Clock, text: "Mon-Sat: 10AM-7PM", href: null },
               { icon: MapPin, text: "Service Available in Madurai", href: "" }
@@ -451,26 +452,9 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p>© 2025  Esha Henna Hub. All rights reserved.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            {[
-              { icon: Instagram, href: "https://www.instagram.com/esha_henna_hub/?hl=en" },
-          
-            ].map((social, i) => (
-              <motion.a
-                key={i}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, color: "#FCD34D" }}
-                whileTap={{ scale: 0.9 }}
-                className="hover:text-pink-400 transition-colors"
-              >
-                <social.icon className="w-6 h-6" />
-              </motion.a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto flex flex-col items-center md:flex-row justify-center">
+          <p className="text-center">© 2025 Esha Henna Hub ❤️. All rights reserved.</p>
+      
         </div>
       </footer>
     </div>
